@@ -1,0 +1,16 @@
+﻿@model PizzaViewModel
+
+<h3>@ViewData["Title"] </h3>
+
+@if (ViewBag.Pizza.IsOnPromotion)
+{
+    <h4 style="color: red">Special promotion!!!</h4>
+    <partial name="~/Views/Shared/Partials/_PizzaDetails.cshtml" for="@Model" />
+    <br />
+}
+else
+{
+    <partial name="~/Views/Shared/Partials/_PizzaDetails.cshtml" for="@Model" />
+    <br />
+}
+
