@@ -1,0 +1,15 @@
+﻿@model List<PizzaViewModel>
+
+<h4>@ViewData["Title"]</h4>
+<ul style="list-style: none">
+    @foreach (var pizza in Model)
+    {
+        <li>
+            <p>@pizza.Name</p>
+            <p><a asp-controller="Pizza" asp-action="Details" asp-route-id="@pizza.Id">More Info</a></p>
+        </li>
+    }
+</ul>
+
+
+
