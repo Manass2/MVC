@@ -49,9 +49,7 @@ namespace SEDC.PizzaApp.Controllers
 
         public IActionResult Details(int? id) // localhost:port/Pizza/Details/1 or  localhost:port/Pizza/Details
         {
-            ViewData["Title"] = "Pizza Details";
-
-            ViewBag.Pizza = StaticDb.Pizzas.FirstOrDefault(p => p.Id == id);
+            ViewData["Title"] = "Pizza Details";   
 
             if (id == null)
             {
@@ -63,6 +61,8 @@ namespace SEDC.PizzaApp.Controllers
             {
                 return new EmptyResult();
             }
+
+            ViewBag.Pizza = StaticDb.Pizzas.FirstOrDefault(p => p.Id == id);
 
             return View();
         

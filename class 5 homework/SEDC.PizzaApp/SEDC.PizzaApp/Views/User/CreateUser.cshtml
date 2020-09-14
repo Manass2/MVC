@@ -1,0 +1,22 @@
+﻿@model UserViewModel
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateUserPost" asp-controller="User" method="post">
+            <div class="form-control">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" required />
+            </div>
+            <div class="form-control">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" required />
+            </div>
+            <div class="form-control">
+                <label asp-for="Address"></label>
+                <input asp-for="Address" required />
+            </div>
+
+            <button type="submit" class="btn btn-default"> Create </button>
+            <a asp-controller="User" asp-action="index">Cancel</a>
+        </form>
+    </div>
+</div>

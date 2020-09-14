@@ -1,0 +1,16 @@
+﻿@model List<UserViewModel>
+<h2>List of Users</h2>
+<hr />
+<a asp-controller="User" asp-action="CreateUser"> Create new user </a>
+<hr />
+
+@foreach (var user in Model)
+{
+    <p>First Name: @user.FirstName</p>
+    <p>Last Name: @user.LastName</p>
+    <p>Address: @user.Address</p>
+    <a asp-controller="User" asp-action="Details" asp-route-id="@user.Id">User Details</a>
+    <a asp-controller="User" asp-action="EditUser" asp-route-id="@user.Id">Edit User</a>
+    <a asp-controller="User" asp-action="DeleteUser" asp-route-id="@user.Id">Delete User</a>
+    <hr />
+}

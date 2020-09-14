@@ -1,0 +1,13 @@
+﻿@model UserViewModel
+
+<h3>Delete this user?</h3>
+
+<p>First Name: @Model.FirstName</p>
+<p>Last Name: @Model.LastName</p>
+<p>Address: @Model.Address</p>
+
+<form asp-action="DeleteUserPost">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit"> Delete</button>
+    <a asp-controller="User" asp-action="index">Cancel</a>
+</form>

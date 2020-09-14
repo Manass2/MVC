@@ -12,27 +12,14 @@ namespace SEDC.PizzaApp.Models.Mappers
 
         public static PizzaViewModel PizzaToViewModel(this Pizza pizza)
         {
-
-            if(pizza.HasExtras)
-            {
+           
                 return new PizzaViewModel
                 {
                     Id = pizza.Id,
                     Name = pizza.Name,
-                    Price = pizza.Price += 10,
+                    Price = pizza.HasExtras ? pizza.Price + 10: pizza.Price,
                     PizzaSize = pizza.PizzaSize
                 };
-            } 
-            else
-            {
-                return new PizzaViewModel
-                {
-                    Id = pizza.Id,
-                    Name = pizza.Name,
-                    Price = pizza.Price,
-                    PizzaSize = pizza.PizzaSize
-                };
-            }         
 
         }
     }

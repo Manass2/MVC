@@ -1,0 +1,12 @@
+﻿@model PizzaViewModel
+
+<h3>Delete this Pizza?</h3>
+
+<p>Pizza Name: @Model.Name</p>
+<p>Pizza Price: @Model.Price</p>
+
+<form asp-action="DeletePizzaPost">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit"> Delete</button>
+    <a asp-controller="Pizza" asp-action="index">Cancel</a>
+</form>
