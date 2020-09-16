@@ -1,0 +1,17 @@
+﻿@model PizzaViewModel
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreatePizzaPost" asp-controller="Pizza" method="post">
+            <div class="form-control">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="IsOnPromotion" class="control-label"></label>
+                <input type="checkbox" asp-for="IsOnPromotion" class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-default"> Create </button>
+        </form>
+    </div>
+</div>

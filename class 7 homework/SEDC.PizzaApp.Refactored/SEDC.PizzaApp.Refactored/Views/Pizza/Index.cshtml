@@ -1,0 +1,20 @@
+﻿@model List<PizzaViewModel>
+
+<br />
+<a asp-controller="Pizza" asp-action="CreatePizza" >Create Pizza</a>
+<hr/>
+
+@foreach (var pizza in Model)
+{
+    <p>Pizza Name: @pizza.Name</p>
+    @if (pizza.IsOnPromotion)
+    {
+        <p>This pizza is on promotion</p>
+    }
+    @*<a asp-controller="Pizza" asp-action="EditPizza" asp-route-id="@pizza.Id">Edit Pizza</a>
+    <br />
+    <a asp-controller="Pizza" asp-action="DeletePizza" asp-route-id="@pizza.Id">Delete Pizza</a>
+    <hr />*@
+    <a asp-controller="Pizza" asp-action="Details" asp-route-id="@pizza.Id">Details</a>
+    <hr />
+}
