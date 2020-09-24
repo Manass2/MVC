@@ -10,7 +10,6 @@ namespace SEDC.PizzaApp.Refactored.Controllers
 {
     public class PizzaController : Controller
     {
-
         private IPizzaService _pizzaService;
 
         public PizzaController(IPizzaService pizzaService)
@@ -36,7 +35,6 @@ namespace SEDC.PizzaApp.Refactored.Controllers
             try
             {
                 PizzaViewModel pizzaViewModel = _pizzaService.GetPizzaById(id.Value);
-                ViewBag.PizzaDD = _pizzaService.GetPizzasForDropdown();
                 return View(pizzaViewModel);
             }
             catch (Exception ex)
