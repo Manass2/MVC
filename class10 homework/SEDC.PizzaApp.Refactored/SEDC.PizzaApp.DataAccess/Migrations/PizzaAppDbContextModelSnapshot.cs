@@ -19,6 +19,28 @@ namespace SEDC.PizzaApp.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("SEDC.PizzaApp.Domain.Models.Feedback", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Feedbacks");
+
+                    b.HasData(
+                        new { Id = 1, Email = "pane@mail.com", Message = "message", Name = "Pane" },
+                        new { Id = 2, Email = "user2@mail.com", Message = "message2", Name = "User2" }
+                    );
+                });
+
             modelBuilder.Entity("SEDC.PizzaApp.Domain.Models.Order", b =>
                 {
                     b.Property<int>("Id")

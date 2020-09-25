@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using SEDC.PizzaApp.DataAccess.Interfaces;
 using SEDC.PizzaApp.Domain.Models;
 
@@ -17,12 +18,22 @@ namespace SEDC.PizzaApp.DataAccess.EFImplementations
         }
         public List<Pizza> GetAll()
         {
-            return _pizzaAppDbContext.Pizzas.ToList();
+            //return _pizzaAppDbContext.Pizzas.ToList();
+
+            return _pizzaAppDbContext.Pizzas
+              .Include(x => x.PizzaOrders)
+              .ThenInclude(x => x.Order)
+              .ToList();
         }
 
         public Pizza GetById(int id)
         {
-            return _pizzaAppDbContext.Pizzas.FirstOrDefault(x => x.Id == id);
+            //return _pizzaAppDbContext.Pizzas.FirstOrDefault(x => x.Id == id);
+
+            return _pizzaAppDbContext.Pizzas
+             .Include(x => x.PizzaOrders)
+             .ThenInclude(x => x.Order)
+             .FirstOrDefault(x => x.Id == id);
         }
 
         public int Insert(Pizza entity)
